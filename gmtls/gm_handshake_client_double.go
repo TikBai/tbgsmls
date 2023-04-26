@@ -183,6 +183,7 @@ func (hs *clientHandshakeStateGM) doFullHandshake() error {
 
 	// mod by syl only one cert
 	// Thanks to dual certificates mechanism, length of certificates in GMT0024 must great than 2
+	fmt.Printf("certMsg.certificates.lenght:", len(certMsg.certificates))
 	if len(certMsg.certificates) < 2 {
 		c.sendAlert(alertInsufficientSecurity)
 		return fmt.Errorf("tls: length of certificates in GMT0024 must great than 2")
